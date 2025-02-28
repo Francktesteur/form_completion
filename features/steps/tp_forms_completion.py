@@ -85,3 +85,5 @@ def step_impl(context):
     # Vérifier le texte du message
     success_message = context.driver.find_element(By.CSS_SELECTOR, ".modal-success .message")
     assert "Inscrption réussite !" in success_message.text, f"Message attendu 'Inscrption réussite !' mais reçu '{success_message.text}'"
+
+

@@ -12,3 +12,6 @@ Feature: Compléter un formulaire
       And Je choisis "France" dans la liste déroulante pays
       And Je clique sur le bouton valider
       Then J'ai un message Inscrption réussite !
+
+
+
