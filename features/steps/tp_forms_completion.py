@@ -70,7 +70,18 @@ def saisir_state(context, state):
 def step_when_i_click_the_submit_button(context):
     submit_button = context.driver.find_element(By.ID, "connexionToastBtn")
     submit_button.click()
-    input()
+    #input()
     sleep(delay)
 
 
+
+@then('J\'ai un message Inscrption réussite !') # c'est de la MERDE!!!!!!
+def step_impl(context):
+    # Attendre que le message de succès apparaisse (probablement dans une modal)
+    WebDriverWait(context.driver, 10).until(
+        EC.visibility_of_element_located((By.CSS_SELECTOR, "#connexionToast"))
+    )
+
+    # Vérifier le texte du message
+    success_message = context.driver.find_element(By.CSS_SELECTOR, ".modal-success .message")
+    assert "Inscrption réussite !" in success_message.text, f"Message attendu 'Inscrption réussite !' mais reçu '{success_message.text}'"
